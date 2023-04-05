@@ -4,7 +4,9 @@ import { AppService } from './app.service';
 import { MidiModule } from './midi/midi.module';
 
 @Module({
-  imports: [MidiModule],
+  imports: [
+    MidiModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
