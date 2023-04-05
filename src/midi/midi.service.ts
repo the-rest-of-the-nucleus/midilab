@@ -16,16 +16,9 @@ function transform(target) {
 }
 
 @Injectable()
-export class MidiService implements OnModuleInit {
+export class MidiService {
   private readonly logger = new Logger(MidiService.name);
 
-  onModuleInit() {
-    WebMidi.enable().then(() => onEnabled(this.logger)).catch((e) => onError(this.logger, e));
-  }
-
-  onModuleDestroy() {
-    WebMidi.disable().then(() => onDisabled(this.logger)).catch((e) => onError(this.logger, e));
-  }
 
   private get inputs() {
     return WebMidi.inputs.map(transform);
